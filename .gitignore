@@ -1,0 +1,57 @@
+﻿# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environments
+.venv/
+venv/
+env/
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Logs
+*.log
+logs/
+
+# OS temporary files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Optional heavy raw datasets (keep .gitkeep)
+data/raw/*.csv
+data/raw/*.tsv
+data/raw/*.xlsx
+data/raw/*.xls
+data/raw/*.parquet
+data/raw/*.feather
+data/raw/*.json
+data/raw/*.zip
+!data/raw/.gitkeep
+
+# Optional processed/external tabular data
+data/processed/*.csv
+data/processed/*.parquet
+data/external/*.csv
+data/external/*.parquet
+
+# Heavy model artifacts
+*.pkl
+*.joblib
+*.h5
+*.pt
+*.onnx
+
+# Optional generated outputs
+results/metrics/*.csv
+results/metrics/*.json
+results/plots/*.png
+results/plots/*.jpg
+results/plots/*.jpeg
+results/plots/*.svg
+results/reports/*.html
+results/reports/*.pdf
