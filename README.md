@@ -135,7 +135,7 @@ target_tiempo_entrega
 
 - Preprocesamiento de datos.
 - Entrenamiento de modelos de regresion.
-- Evaluacion con MAE, RMSE y R².
+- Evaluacion con MAE, RMSE y R2.
 - Optimizacion de hiperparametros.
 - Guardado del modelo final.
 
@@ -200,8 +200,43 @@ Archivo generado:
 results/reports/cesar_regression_baseline_predictions.csv
 
 Siguiente paso:
-Evaluar los modelos con MAE, RMSE y R? en la rama:
+Evaluar los modelos con MAE, RMSE y R2 en la rama:
 cesar/feature/regression-evaluation
+
+Restricciones:
+No se realizo optimizacion de hiperparametros en esta rama.
+No se guardo modelo final en esta rama.
+
+### Rama de evaluacion
+
+Rama:
+cesar/feature/regression-evaluation
+
+Objetivo:
+Evaluar y comparar los modelos base de regresion.
+
+Modulo principal:
+src/model_evaluation.py
+
+Notebook:
+notebooks/02_supervised_regression_cesar.ipynb
+
+Metricas utilizadas:
+- MAE
+- RMSE
+- R2
+
+Archivos generados:
+- results/metrics/cesar_regression_metrics.csv
+- results/metrics/cesar_regression_best_model_summary.csv
+- results/plots/cesar_regression_rmse_comparison.png
+- results/plots/cesar_regression_mae_comparison.png
+- results/plots/cesar_real_vs_predicho_best_model.png
+- results/plots/cesar_residuals_best_model.png
+
+Siguiente paso:
+Optimizar el mejor modelo base en la rama:
+cesar/feature/regression-tuning
 
 Restricciones:
 No se realizo optimizacion de hiperparametros en esta rama.
