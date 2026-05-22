@@ -1,4 +1,4 @@
-﻿# scy1101-ev2-logistica-ml
+# scy1101-ev2-logistica-ml
 
 Proyecto ML para SCY1101 EV2 enfocado en logística predictiva, con análisis de datos, modelos supervisados/no supervisados, evaluación y optimización.
 
@@ -106,3 +106,35 @@ Estructura inicial creada. El proyecto está listo para comenzar el desarrollo i
 
 ## Licencia
 Este proyecto se distribuye bajo la licencia MIT. Ver archivo `LICENSE`.
+
+## Linea de trabajo de Cesar: Modelo de Regresion
+
+Esta linea de trabajo busca construir un modelo de regresion supervisada para predecir el tiempo de entrega en el contexto Logistica 4.0.
+
+### Rama general
+
+cesar/modelo-regresion
+
+### Rama actual de setup
+
+cesar/feature/regression-setup
+
+### Objetivo inicial
+
+Preparar el notebook base, cargar el dataset, definir la variable objetivo y separar las variables de entrada X y la variable objetivo y.
+
+### Notebook principal
+
+notebooks/02_supervised_regression_cesar.ipynb
+
+### Variable objetivo
+
+target_tiempo_entrega
+
+### Proximos pasos
+
+- Preprocesamiento de datos.
+- Entrenamiento de modelos de regresion.
+- Evaluacion con MAE, RMSE y R².
+- Optimizacion de hiperparametros.
+- Guardado del modelo final.
