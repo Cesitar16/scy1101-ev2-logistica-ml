@@ -173,3 +173,37 @@ Restricciones importantes:
 - No evaluar modelos todavia.
 - No optimizar hiperparametros todavia.
 
+### Rama de entrenamiento
+
+Rama:
+cesar/feature/regression-training
+
+Objetivo:
+Entrenar modelos base de regresion supervisada para predecir target_tiempo_entrega.
+
+Dataset utilizado:
+data/processed/cesar_logistica_clean.csv
+
+Modulo principal:
+src/model_training.py
+
+Notebook:
+notebooks/02_supervised_regression_cesar.ipynb
+
+Modelos entrenados:
+- LinearRegression
+- DecisionTreeRegressor
+- RandomForestRegressor
+- GradientBoostingRegressor
+
+Archivo generado:
+results/reports/cesar_regression_baseline_predictions.csv
+
+Siguiente paso:
+Evaluar los modelos con MAE, RMSE y R? en la rama:
+cesar/feature/regression-evaluation
+
+Restricciones:
+No se realizo optimizacion de hiperparametros en esta rama.
+No se guardo modelo final en esta rama.
+
