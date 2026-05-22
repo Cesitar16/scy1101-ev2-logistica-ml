@@ -1,4 +1,4 @@
-﻿# scy1101-ev2-logistica-ml
+# scy1101-ev2-logistica-ml
 
 Proyecto ML para SCY1101 EV2 enfocado en logística predictiva, con análisis de datos, modelos supervisados/no supervisados, evaluación y optimización.
 
@@ -121,3 +121,280 @@ Estructura inicial creada. El proyecto está listo para comenzar el desarrollo i
 
 ## Licencia
 Este proyecto se distribuye bajo la licencia MIT. Ver archivo `LICENSE`.
+
+## Linea de trabajo de Cesar: Modelo de Regresion
+
+Esta linea de trabajo busca construir un modelo de regresion supervisada para predecir el tiempo de entrega en el contexto Logistica 4.0.
+
+### Rama general
+
+cesar/modelo-regresion
+
+### Rama actual de setup
+
+cesar/feature/regression-setup
+
+### Objetivo inicial
+
+Preparar el notebook base, cargar el dataset, definir la variable objetivo y separar las variables de entrada X y la variable objetivo y.
+
+### Notebook principal
+
+notebooks/02_supervised_regression_cesar.ipynb
+
+### Variable objetivo
+
+target_tiempo_entrega
+
+### Proximos pasos
+
+- Preprocesamiento de datos.
+- Entrenamiento de modelos de regresion.
+- Evaluacion con MAE, RMSE y R2.
+- Optimizacion de hiperparametros.
+- Guardado del modelo final.
+
+### Rama de preprocesamiento
+
+Rama:
+cesar/feature/regression-preprocessing
+
+Objetivo:
+Preparar el dataset para el entrenamiento posterior de modelos de regresion.
+
+Archivo principal:
+notebooks/02_supervised_regression_cesar.ipynb
+
+Modulo principal:
+src/data_preprocessing.py
+
+Dataset limpio generado:
+data/processed/cesar_logistica_clean.csv
+
+Transformaciones:
+- Normalizacion de columnas.
+- Limpieza de texto.
+- Conversion de numericos.
+- Tratamiento de nulos.
+- Eliminacion de duplicados.
+- Tratamiento de outliers con IQR.
+- Construccion de ColumnTransformer para Scikit-learn.
+
+Siguiente rama:
+cesar/feature/regression-training
+
+Restricciones importantes:
+- No entrenar modelos todavia.
+- No evaluar modelos todavia.
+- No optimizar hiperparametros todavia.
+
+### Rama de entrenamiento
+
+Rama:
+cesar/feature/regression-training
+
+Objetivo:
+Entrenar modelos base de regresion supervisada para predecir target_tiempo_entrega.
+
+Dataset utilizado:
+data/processed/cesar_logistica_clean.csv
+
+Modulo principal:
+src/model_training.py
+
+Notebook:
+notebooks/02_supervised_regression_cesar.ipynb
+
+Modelos entrenados:
+- LinearRegression
+- DecisionTreeRegressor
+- RandomForestRegressor
+- GradientBoostingRegressor
+
+Archivo generado:
+results/reports/cesar_regression_baseline_predictions.csv
+
+Siguiente paso:
+Evaluar los modelos con MAE, RMSE y R2 en la rama:
+cesar/feature/regression-evaluation
+
+Restricciones:
+No se realizo optimizacion de hiperparametros en esta rama.
+No se guardo modelo final en esta rama.
+
+### Rama de evaluacion
+
+Rama:
+cesar/feature/regression-evaluation
+
+Objetivo:
+Evaluar y comparar los modelos base de regresion.
+
+Modulo principal:
+src/model_evaluation.py
+
+Notebook:
+notebooks/02_supervised_regression_cesar.ipynb
+
+Metricas utilizadas:
+- MAE
+- RMSE
+- R2
+
+Archivos generados:
+- results/metrics/cesar_regression_metrics.csv
+- results/metrics/cesar_regression_best_model_summary.csv
+- results/plots/cesar_regression_rmse_comparison.png
+- results/plots/cesar_regression_mae_comparison.png
+- results/plots/cesar_real_vs_predicho_best_model.png
+- results/plots/cesar_residuals_best_model.png
+
+Siguiente paso:
+Optimizar el mejor modelo base en la rama:
+cesar/feature/regression-tuning
+
+Restricciones:
+No se realizo optimizacion de hiperparametros en esta rama.
+No se guardo modelo final en esta rama.
+
+### Rama de optimizacion
+
+Rama:
+cesar/feature/regression-tuning
+
+Objetivo:
+Optimizar el mejor modelo base usando GridSearchCV.
+
+Modulo principal:
+src/hyperparameter_tuning.py
+
+Notebook:
+notebooks/02_supervised_regression_cesar.ipynb
+
+Metrica de optimizacion:
+neg_root_mean_squared_error
+
+Archivos generados:
+- results/metrics/cesar_regression_tuning_results.csv
+- results/metrics/cesar_regression_optimized_metrics.csv
+- results/metrics/cesar_regression_base_vs_optimized.csv
+- results/plots/cesar_base_vs_optimized_rmse.png
+- results/plots/cesar_base_vs_optimized_mae.png
+- results/plots/cesar_optimized_real_vs_predicho.png
+- results/plots/cesar_optimized_residuals.png
+
+Siguiente paso:
+Guardar el modelo final y cerrar conclusiones en:
+cesar/feature/regression-finalization
+
+Restricciones:
+No se guardo modelo final .joblib en esta rama.
+
+### Rama de finalizacion
+
+Rama:
+cesar/feature/regression-finalization
+
+Objetivo:
+Guardar el modelo final de regresion, documentar conclusiones y dejar lista la linea de trabajo de Cesar para integracion.
+
+Modulo principal:
+src/model_persistence.py
+
+Notebook:
+notebooks/02_supervised_regression_cesar.ipynb
+
+Modelo final:
+models/trained_models/cesar_regression_model.joblib
+
+Metricas finales:
+results/metrics/cesar_regression_final_metrics.csv
+
+Resumen final:
+results/reports/cesar_regression_final_summary.md
+
+Documentacion final:
+docs/cesar_regression_final_report.md
+
+Flujo completo desarrollado:
+1. regression-setup
+2. regression-preprocessing
+3. regression-training
+4. regression-evaluation
+5. regression-tuning
+6. regression-finalization
+
+Rama general:
+cesar/modelo-regresion
+
+Estado:
+La linea de regresion de Cesar queda lista para integrarse a main cuando el equipo lo apruebe.
+
+### Experimento de mejora de precision
+
+Objetivo:
+Mejorar el modelo de regresion de Cesar usando ingenieria de caracteristicas, nuevos modelos y optimizacion orientada al acierto dentro de +/-10 minutos.
+
+Archivos agregados:
+- src/feature_engineering.py
+- src/operational_metrics.py
+- src/model_interpretability.py
+- src/regression_improvement_experiment.py
+
+Outputs:
+- results/metrics/cesar_regression_improved_metrics.csv
+- results/metrics/cesar_regression_improved_operational_accuracy.csv
+- results/metrics/cesar_regression_current_vs_improved.csv
+- results/metrics/cesar_feature_importance.csv
+- results/plots/cesar_current_vs_improved_rmse.png
+- results/plots/cesar_current_vs_improved_mae.png
+- results/plots/cesar_current_vs_improved_tolerance_accuracy.png
+- results/plots/cesar_feature_importance.png
+- results/reports/cesar_regression_improvement_summary.md
+
+### Experimento de mejora de estimacion exacta
+
+Objetivo:
+Reducir MAE/RMSE y aumentar R2 para mejorar la estimacion del tiempo de entrega.
+
+Archivos agregados:
+- src/advanced_feature_engineering.py
+- src/error_analysis.py
+- src/cross_validation_evaluation.py
+- src/target_transform_experiment.py
+- src/feature_selection_experiment.py
+- src/regression_precision_experiment.py
+
+Outputs:
+- results/metrics/cesar_precision_experiment_metrics.csv
+- results/metrics/cesar_precision_cross_validation.csv
+- results/metrics/cesar_precision_operational_accuracy.csv
+- results/metrics/cesar_precision_current_vs_previous.csv
+- results/metrics/cesar_precision_error_by_segment.csv
+- results/metrics/cesar_precision_feature_importance.csv
+- results/plots/cesar_precision_mae_comparison.png
+- results/plots/cesar_precision_rmse_comparison.png
+- results/plots/cesar_precision_r2_comparison.png
+- results/plots/cesar_precision_tolerance_comparison.png
+
+### Experimento enfocado en errores dificiles
+
+Objetivo:
+Reducir el margen de error del modelo en los segmentos donde peor predice.
+
+Archivos agregados:
+- src/error_focused_features.py
+- src/residual_correction.py
+- src/segment_error_improvement.py
+- src/regression_error_focused_experiment.py
+
+Outputs:
+- results/metrics/cesar_error_focused_metrics.csv
+- results/metrics/cesar_error_focused_current_vs_new.csv
+- results/metrics/cesar_error_focused_segment_metrics.csv
+- results/metrics/cesar_error_focused_segment_comparison.csv
+- results/metrics/cesar_error_focused_feature_importance.csv
+- results/plots/cesar_error_focused_mae_comparison.png
+- results/plots/cesar_error_focused_rmse_comparison.png
+- results/plots/cesar_error_focused_tolerance_comparison.png
+
