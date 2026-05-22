@@ -6,9 +6,15 @@ from pathlib import Path
 from typing import Any
 
 import pandas as pd
-from sklearn.ensemble import GradientBoostingRegressor, RandomForestRegressor
+from sklearn.ensemble import (
+    ExtraTreesRegressor,
+    GradientBoostingRegressor,
+    HistGradientBoostingRegressor,
+    RandomForestRegressor,
+)
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsRegressor
 from sklearn.pipeline import Pipeline
 from sklearn.tree import DecisionTreeRegressor
 
@@ -138,6 +144,17 @@ def get_regression_estimators(
         ),
         "gradient_boosting_regressor": GradientBoostingRegressor(
             random_state=random_state,
+        ),
+        "extra_trees_regressor": ExtraTreesRegressor(
+            n_estimators=200,
+            random_state=random_state,
+            n_jobs=-1,
+        ),
+        "hist_gradient_boosting_regressor": HistGradientBoostingRegressor(
+            random_state=random_state,
+        ),
+        "knn_regressor": KNeighborsRegressor(
+            n_neighbors=5,
         ),
     }
 

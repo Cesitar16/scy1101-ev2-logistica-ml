@@ -330,3 +330,71 @@ cesar/modelo-regresion
 Estado:
 La linea de regresion de Cesar queda lista para integrarse a main cuando el equipo lo apruebe.
 
+### Experimento de mejora de precision
+
+Objetivo:
+Mejorar el modelo de regresion de Cesar usando ingenieria de caracteristicas, nuevos modelos y optimizacion orientada al acierto dentro de +/-10 minutos.
+
+Archivos agregados:
+- src/feature_engineering.py
+- src/operational_metrics.py
+- src/model_interpretability.py
+- src/regression_improvement_experiment.py
+
+Outputs:
+- results/metrics/cesar_regression_improved_metrics.csv
+- results/metrics/cesar_regression_improved_operational_accuracy.csv
+- results/metrics/cesar_regression_current_vs_improved.csv
+- results/metrics/cesar_feature_importance.csv
+- results/plots/cesar_current_vs_improved_rmse.png
+- results/plots/cesar_current_vs_improved_mae.png
+- results/plots/cesar_current_vs_improved_tolerance_accuracy.png
+- results/plots/cesar_feature_importance.png
+- results/reports/cesar_regression_improvement_summary.md
+
+### Experimento de mejora de estimacion exacta
+
+Objetivo:
+Reducir MAE/RMSE y aumentar R2 para mejorar la estimacion del tiempo de entrega.
+
+Archivos agregados:
+- src/advanced_feature_engineering.py
+- src/error_analysis.py
+- src/cross_validation_evaluation.py
+- src/target_transform_experiment.py
+- src/feature_selection_experiment.py
+- src/regression_precision_experiment.py
+
+Outputs:
+- results/metrics/cesar_precision_experiment_metrics.csv
+- results/metrics/cesar_precision_cross_validation.csv
+- results/metrics/cesar_precision_operational_accuracy.csv
+- results/metrics/cesar_precision_current_vs_previous.csv
+- results/metrics/cesar_precision_error_by_segment.csv
+- results/metrics/cesar_precision_feature_importance.csv
+- results/plots/cesar_precision_mae_comparison.png
+- results/plots/cesar_precision_rmse_comparison.png
+- results/plots/cesar_precision_r2_comparison.png
+- results/plots/cesar_precision_tolerance_comparison.png
+
+### Experimento enfocado en errores dificiles
+
+Objetivo:
+Reducir el margen de error del modelo en los segmentos donde peor predice.
+
+Archivos agregados:
+- src/error_focused_features.py
+- src/residual_correction.py
+- src/segment_error_improvement.py
+- src/regression_error_focused_experiment.py
+
+Outputs:
+- results/metrics/cesar_error_focused_metrics.csv
+- results/metrics/cesar_error_focused_current_vs_new.csv
+- results/metrics/cesar_error_focused_segment_metrics.csv
+- results/metrics/cesar_error_focused_segment_comparison.csv
+- results/metrics/cesar_error_focused_feature_importance.csv
+- results/plots/cesar_error_focused_mae_comparison.png
+- results/plots/cesar_error_focused_rmse_comparison.png
+- results/plots/cesar_error_focused_tolerance_comparison.png
+

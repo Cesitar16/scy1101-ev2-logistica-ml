@@ -41,6 +41,14 @@ except ImportError:
         plot_real_vs_predicted = None
         plot_residuals = None
 
+try:
+    from operational_metrics import tolerance_accuracy_10_scorer  # type: ignore
+except ImportError:
+    try:
+        from .operational_metrics import tolerance_accuracy_10_scorer  # type: ignore
+    except ImportError:
+        tolerance_accuracy_10_scorer = None
+
 
 RANDOM_STATE = 42
 
@@ -72,6 +80,23 @@ def get_param_grid_for_model(model_name: str) -> dict[str, list[Any]]:
             "model__learning_rate": [0.01, 0.05, 0.1],
             "model__max_depth": [2, 3, 5],
             "model__min_samples_split": [2, 5, 10],
+        },
+        "extra_trees_regressor": {
+            "model__n_estimators": [100, 200, 300],
+            "model__max_depth": [5, 8, None],
+            "model__min_samples_split": [2, 5, 10],
+            "model__min_samples_leaf": [1, 2, 4],
+        },
+        "hist_gradient_boosting_regressor": {
+            "model__max_iter": [100, 200],
+            "model__learning_rate": [0.03, 0.05, 0.1],
+            "model__max_leaf_nodes": [15, 31, 63],
+            "model__min_samples_leaf": [10, 20, 30],
+        },
+        "knn_regressor": {
+            "model__n_neighbors": [3, 5, 7, 9],
+            "model__weights": ["uniform", "distance"],
+            "model__p": [1, 2],
         },
     }
 
@@ -168,6 +193,36 @@ def tune_regression_model_randomizedsearch(
     random_search.fit(X_train, y_train)
 
     return random_search
+
+
+def tune_regression_model_for_tolerance_10(
+    model: Any,
+    param_grid: dict[str, list[Any]],
+    X_train: pd.DataFrame,
+    y_train: pd.Series,
+    cv: int = 5,
+    n_jobs: int = -1,
+) -> GridSearchCV:
+    """
+    Optimiza un modelo buscando maximizar el acierto dentro de +/-10 minutos.
+    """
+    if tolerance_accuracy_10_scorer is None:
+        raise ImportError("No se pudo importar tolerance_accuracy_10_scorer.")
+
+    if not param_grid:
+        raise ValueError("La grilla de parametros esta vacia.")
+
+    grid_search = GridSearchCV(
+        estimator=model,
+        param_grid=param_grid,
+        scoring=tolerance_accuracy_10_scorer,
+        cv=cv,
+        n_jobs=n_jobs,
+        return_train_score=True,
+    )
+    grid_search.fit(X_train, y_train)
+
+    return grid_search
 
 
 def get_tuning_results_dataframe(search_object: Any) -> pd.DataFrame:
