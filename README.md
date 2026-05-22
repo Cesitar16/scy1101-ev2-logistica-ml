@@ -138,3 +138,38 @@ target_tiempo_entrega
 - Evaluacion con MAE, RMSE y R².
 - Optimizacion de hiperparametros.
 - Guardado del modelo final.
+
+### Rama de preprocesamiento
+
+Rama:
+cesar/feature/regression-preprocessing
+
+Objetivo:
+Preparar el dataset para el entrenamiento posterior de modelos de regresion.
+
+Archivo principal:
+notebooks/02_supervised_regression_cesar.ipynb
+
+Modulo principal:
+src/data_preprocessing.py
+
+Dataset limpio generado:
+data/processed/cesar_logistica_clean.csv
+
+Transformaciones:
+- Normalizacion de columnas.
+- Limpieza de texto.
+- Conversion de numericos.
+- Tratamiento de nulos.
+- Eliminacion de duplicados.
+- Tratamiento de outliers con IQR.
+- Construccion de ColumnTransformer para Scikit-learn.
+
+Siguiente rama:
+cesar/feature/regression-training
+
+Restricciones importantes:
+- No entrenar modelos todavia.
+- No evaluar modelos todavia.
+- No optimizar hiperparametros todavia.
+
