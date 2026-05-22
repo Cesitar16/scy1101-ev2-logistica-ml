@@ -79,6 +79,21 @@ jupyter notebook
 ```
 3. Abrir la carpeta `notebooks/` y ejecutar el cuaderno correspondiente.
 
+## Ejecución de clasificación supervisada (Lucas)
+Flujo principal:
+- Notebook: `notebooks/02_supervised_classification.ipynb`
+- Dataset esperado: `data/raw/5_logistica_40.csv`
+
+Importante:
+- El dataset crudo **no se versiona** (está ignorado por `.gitignore`).
+- Debes copiar manualmente `5_logistica_40.csv` en `data/raw/` antes de ejecutar.
+
+Validación reproducible por consola:
+```bash
+uv run jupyter nbconvert --to notebook --execute --inplace notebooks/02_supervised_classification.ipynb
+uv run python -m unittest discover -s tests -p "test_*.py"
+```
+
 ## Flujo de trabajo esperado
 1. Cargar y validar datos en `notebooks/01_exploratory_analysis.ipynb`.
 2. Implementar preprocesamiento en `src/data_preprocessing.py`.
