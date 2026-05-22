@@ -13,6 +13,16 @@ env/
 # Jupyter
 .ipynb_checkpoints/
 
+# Test / coverage caches
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Type/lint caches
+.mypy_cache/
+.ruff_cache/
+
 # Logs
 *.log
 logs/
@@ -49,9 +59,22 @@ data/external/*.parquet
 # Optional generated outputs
 results/metrics/*.csv
 results/metrics/*.json
+results/metrics/*.txt
+results/metrics/**/*.csv
+results/metrics/**/*.json
+results/metrics/**/*.txt
 results/plots/*.png
 results/plots/*.jpg
 results/plots/*.jpeg
 results/plots/*.svg
+results/plots/**/*.png
+results/plots/**/*.jpg
+results/plots/**/*.jpeg
+results/plots/**/*.svg
 results/reports/*.html
 results/reports/*.pdf
+
+/docs-persona
+
+# Evidencias personales locales (no forman parte del entregable principal)
+docs-personal/changes/
