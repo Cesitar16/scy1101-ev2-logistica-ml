@@ -275,3 +275,43 @@ cesar/feature/regression-finalization
 Restricciones:
 No se guardo modelo final .joblib en esta rama.
 
+### Rama de finalizacion
+
+Rama:
+cesar/feature/regression-finalization
+
+Objetivo:
+Guardar el modelo final de regresion, documentar conclusiones y dejar lista la linea de trabajo de Cesar para integracion.
+
+Modulo principal:
+src/model_persistence.py
+
+Notebook:
+notebooks/02_supervised_regression_cesar.ipynb
+
+Modelo final:
+models/trained_models/cesar_regression_model.joblib
+
+Metricas finales:
+results/metrics/cesar_regression_final_metrics.csv
+
+Resumen final:
+results/reports/cesar_regression_final_summary.md
+
+Documentacion final:
+docs/cesar_regression_final_report.md
+
+Flujo completo desarrollado:
+1. regression-setup
+2. regression-preprocessing
+3. regression-training
+4. regression-evaluation
+5. regression-tuning
+6. regression-finalization
+
+Rama general:
+cesar/modelo-regresion
+
+Estado:
+La linea de regresion de Cesar queda lista para integrarse a main cuando el equipo lo apruebe.
+
