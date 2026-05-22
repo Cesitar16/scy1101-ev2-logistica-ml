@@ -242,3 +242,36 @@ Restricciones:
 No se realizo optimizacion de hiperparametros en esta rama.
 No se guardo modelo final en esta rama.
 
+### Rama de optimizacion
+
+Rama:
+cesar/feature/regression-tuning
+
+Objetivo:
+Optimizar el mejor modelo base usando GridSearchCV.
+
+Modulo principal:
+src/hyperparameter_tuning.py
+
+Notebook:
+notebooks/02_supervised_regression_cesar.ipynb
+
+Metrica de optimizacion:
+neg_root_mean_squared_error
+
+Archivos generados:
+- results/metrics/cesar_regression_tuning_results.csv
+- results/metrics/cesar_regression_optimized_metrics.csv
+- results/metrics/cesar_regression_base_vs_optimized.csv
+- results/plots/cesar_base_vs_optimized_rmse.png
+- results/plots/cesar_base_vs_optimized_mae.png
+- results/plots/cesar_optimized_real_vs_predicho.png
+- results/plots/cesar_optimized_residuals.png
+
+Siguiente paso:
+Guardar el modelo final y cerrar conclusiones en:
+cesar/feature/regression-finalization
+
+Restricciones:
+No se guardo modelo final .joblib en esta rama.
+
